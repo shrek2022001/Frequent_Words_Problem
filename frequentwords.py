@@ -3,6 +3,7 @@ def FrequentWords(Text, k):
     words = []
     freq = FrequencyMap(Text, k)
     m = max(freq.values())
+    print(m)
     for key in freq:
         if freq[key]==m:
             words.append(key)
@@ -11,7 +12,6 @@ def FrequentWords(Text, k):
 
 
 def FrequencyMap(Text, k):
-    # your code here.
     freq = {}
     n = len(Text)
     for i in range(n-k+1):
