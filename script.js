@@ -8,15 +8,14 @@ function FrequentWords() {
     var words = [];
     freq = FrequencyMap( sequence, length)
     let m = Math.max(...freq.values())
-    freq.forEach((a,b,c) => {
-        console.log(a, "string name",b)
-    } )
+    let answer= [...freq.entries()].reduce((a, e ) => e[1] > a[1] ? e : a )
+    
+    document.getElementById('answer').innerText= ` Result = ${answer[0]}  with frequency ${answer[1]}`
 }
 function FrequencyMap(seq, k) {
     var freq = new Map
     let n = seq.length
     for (let i =0 ; i <= n-k+1; i++){
-        console.log( i , i+k)
         let pattern = seq.slice(i,i+k)
         freq.set(pattern, 0)
         for(let j =0 ; j <= n-k+1 ;j++ ){
